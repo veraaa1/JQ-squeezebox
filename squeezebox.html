@@ -42,6 +42,10 @@
       <img src="images/one1 (2).jpg" alt="">
       <img src="images/one1 (3).jpg" alt="">
       <img src="images/one1 (4).jpg" alt="">
+      <img src="images/one1 (1).jpg" alt="">
+      <img src="images/one1 (2).jpg" alt="">
+      <img src="images/one1 (3).jpg" alt="">
+      <img src="images/one1 (4).jpg" alt="">
     </div>
   </div>
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
@@ -50,6 +54,7 @@
     var picListWidth = $('.pic-list').width()//获取pic-list的宽度 --800px
     var imgWidth = $('img').width()//获取每个img的宽度 --350px
     var space = (picListWidth - imgWidth) / (imgNum - 1)//计算划过一个图片后剩余图片的宽度是多少 --150px
+    console.log(space)
     for (let i = 0; i < imgNum; i++) {
       $('img').eq(i).css('left', picListWidth / imgNum * i)
     }//利用for循环将图片一次层叠排开
@@ -61,7 +66,7 @@
       for (let m = 0; m < imgNum; m++) {
         if (m > ind) {
           //图片索引值大于当前滑入图片的索引值时，应如下计算
-          $('img').eq(m).css('left', picListWidth / imgNum + space * m)
+          $('img').eq(m).css('left', imgWidth + space * (m-1))
         } else {
           //图片索引值小于当前滑入图片的索引值时，应如下计算
           $('img').eq(m).css('left', space * m)
@@ -75,6 +80,7 @@
         $('img').eq(i).css('left', picListWidth / imgNum * i)
       }
     })
+    
   </script>
 
 </body>
